@@ -1,216 +1,171 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Master - Linh Kiện Gaming Cao Cấp</title>
-    <style>
-        /* CSS Tổng thể */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
+<meta charset="UTF-8">
+<title>CLB Ngoại Khóa - THPT Anh Sơn II</title>
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+<!-- CSS TRONG (Internal CSS) -->
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Roboto,sans-serif;
+}
+body{
+    background:#f3f5f7;
+    color:#222;
+}
 
-        /* Header & Navigation */
-        .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#1e40af,#2563eb);
+    color:#fff;
+    text-align:center;
+    padding:40px 20px;
+}
+header h1{
+    font-size:40px;
+}
+header p{
+    margin-top:10px;
+    opacity:.9;
+}
 
-        .header h1 a:hover {
-            color: #3498db;
-        }
+/* MAIN */
+main{
+    max-width:1100px;
+    margin:50px auto;
+    padding:0 20px;
+}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:26px;
+}
 
-        .nav-menu {
-            background: #0f3460;
-            padding: 10px 0;
-            text-align: center;
-            margin-bottom: 40px;
-        }
+/* CARD */
+.card{
+    background:#fff;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 10px 24px rgba(0,0,0,.08);
+    transition:.25s;
+}
+.card:hover{
+    transform:translateY(-6px);
+}
 
-        .nav-menu a {
-            color: white;
-            margin: 0 15px;
-            font-weight: 500;
-            font-size: 14px;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
+/* ====== LINK TÊN CLB ======
+   Thẻ <a> vừa để:
+   1) Hiển thị tên CLB
+   2) Điều hướng sang file HTML riêng của CLB
+   3) Minh họa PSEUDO-CLASS trong CSS
+*/
+.clb-name{
+    display:inline-block;
+    font-size:18px;
+    font-weight:600;
+    text-decoration:none;
+    color:#1e3a8a;
+    margin-bottom:8px;
+    transition:.2s;
+}
 
-        .nav-menu a:hover {
-            color: #e94560;
-        }
+/* PSEUDO-CLASS */
+.clb-name:hover{
+    color:#dc2626;
+    text-decoration:underline;
+}
+.clb-name:visited{
+    color:#6b21a8;
+}
+.clb-name:active{
+    transform:scale(0.95);
+}
+.clb-name:focus{
+    outline:2px dashed #2563eb;
+}
 
-        /* Grid hệ thống 4 sản phẩm */
-        .product-grid {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 0 20px 50px;
-        }
+/* TEXT */
+.desc{
+    font-size:14px;
+    color:#555;
+    line-height:1.5;
+}
 
-        /* Thẻ sản phẩm */
-        .card {
-            background: white;
-            border-radius: 12px;
-            border: 1px solid #eaeaea;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-            border-color: #3498db;
-        }
-
-        .card-image {
-            width: 100%;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            box-sizing: border-box;
-            background: #fff;
-        }
-
-        .card-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .card-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .category {
-            font-size: 11px;
-            color: #3498db;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .title {
-            font-size: 16px;
-            font-weight: 600;
-            margin: 0 0 15px 0;
-            height: 42px;
-            overflow: hidden;display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-
-        .title a:hover {
-            color: #3498db;
-        }
-
-        .price {
-            font-size: 20px;
-            color: #d63031;
-            font-weight: bold;
-            margin-bottom: 20px;
-            margin-top: auto;
-        }
-
-        .buy-btn {
-            background-color: #1a1a2e;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            text-align: center;
-        }
-
-        .buy-btn:hover {
-            background-color: #e94560;
-        }
-    </style>
+/* FOOTER */
+footer{
+    margin-top:70px;
+    background:#fff;
+    border-top:1px solid #e5e7eb;
+    padding:25px 20px;
+    text-align:center;
+    font-size:13px;
+    color:#666;
+}
+</style>
 </head>
+
 <body>
 
-    <header class="header">
-        <h1><a href="index.html">PC MASTER STORE</a></h1>
-        <p>Linh kiện máy tính & Phụ kiện PC chính hãng</p>
-    </header>
+<header>
+    <h1>Trường THPT Anh Sơn II</h1>
+    <p>Các Câu Lạc Bộ Ngoại Khóa – Học tập & Phát triển kỹ năng</p>
+</header>
 
-    <nav class="nav-menu">
-        <a href="index.html">Trang chủ</a>
-        <a href="#vga">Card đồ họa</a>
-        <a href="#cpu">Vi xử lý</a>
-        <a href="#contact">Liên hệ</a>
-    </nav>
+<main>
+<div class="grid">
 
-    <main class="product-grid">
-        <div class="card">
-            <a href="product-detail-1.html" class="card-image">
-                <img src="https://via.placeholder.com/300x200?text=RTX+4080+Super" alt="VGA">
-            </a>
-            <div class="card-content">
-                <span class="category">Card Đồ Họa</span>
-                <h3 class="title"><a href="product-detail-1.html">Gigabyte GeForce RTX 4080 SUPER OC 16GB</a></h3>
-                <div class="price">32.500.000₫</div>
-                <a href="cart.html" class="buy-btn">Thêm vào giỏ</a>
-            </div>
-        </div>
+<div class="card">
+    <!-- CSS NỘI DÒNG: icon + màu nhấn -->
+    <div style="font-size:36px;margin-bottom:6px;">💻</div>
+    <a class="clb-name" href="clb-tinhoc.html">
+        CLB Tin học – Công nghệ
+    </a>
+    <p class="desc">
+        Lập trình, thiết kế web, AI cơ bản và ứng dụng công nghệ vào học tập.
+    </p>
+</div>
 
-        <div class="card">
-            <a href="product-detail-2.html" class="card-image">
-                <img src="https://via.placeholder.com/300x200?text=Core+i7+14700K" alt="CPU">
-            </a>
-            <div class="card-content">
-                <span class="category">Vi xử lý</span>
-                <h3 class="title"><a href="product-detail-2.html">Intel Core i7-14700K (Up to 5.6GHz, 20 Nhân 28 Luồng)</a></h3>
-                <div class="price">11.200.000₫</div>
-                <a href="cart.html" class="buy-btn">Thêm vào giỏ</a>
-            </div>
-        </div>
+<div class="card">
+    <div style="font-size:36px;margin-bottom:6px;">🎸</div>
+    <a class="clb-name" href="clb-amnhac.html">
+        CLB Âm nhạc
+    </a>
+    <p class="desc">
+        Thanh nhạc, guitar, piano và biểu diễn trong các sự kiện của trường.
+    </p>
+</div>
 
-        <div class="card">
-            <a href="product-detail-3.html" class="card-image">
-                <img src="https://via.placeholder.com/300x200?text=Z790+Aorus+Elite" alt="Mainboard">
-            </a>
-            <div class="card-content">
-                <span class="category">Bo mạch chủ</span>
-                <h3 class="title"><a href="product-detail-3.html">Mainboard GIGABYTE Z790 AORUS ELITE AX</a></h3>
-                <div class="price">7.890.000₫</div>
-                <a href="cart.html" class="buy-btn">Thêm vào giỏ</a>
-            </div>
-        </div>
+<div class="card">
+    <div style="font-size:36px;margin-bottom:6px;">⚽</div>
+    <a class="clb-name" href="clb-thethao.html">
+        CLB Thể thao
+    </a>
+    <p class="desc">
+        Bóng đá, cầu lông, bóng chuyền – rèn luyện thể chất và tinh thần đồng đội.
+    </p>
+</div>
 
-        <div class="card"><a href="product-detail-4.html" class="card-image">
-                <img src="https://via.placeholder.com/300x200?text=990+Pro+1TB" alt="SSD">
-            </a>
-            <div class="card-content">
-                <span class="category">Ổ cứng SSD</span>
-                <h3 class="title"><a href="product-detail-4.html">Samsung 990 Pro PCIe Gen4 x4 NVMe 1TB M.2</a></h3>
-                <div class="price">2.950.000₫</div>
-                <a href="cart.html" class="buy-btn">Thêm vào giỏ</a>
-            </div>
-        </div>
-    </main>
+<div class="card">
+    <div style="font-size:36px;margin-bottom:6px;">🌱</div>
+    <a class="clb-name" href="clb-tinhnguyen.html">
+        CLB Tình nguyện – Môi trường
+    </a>
+    <p class="desc">
+        Hoạt động thiện nguyện, bảo vệ môi trường và phục vụ cộng đồng.
+    </p>
+</div>
+
+</div>
+</main>
+
+<footer>
+    <strong>Trường THPT Anh Sơn II</strong><br>
+    Giáo dục – Kỷ luật – Sáng tạo – Nhân văn<br>
+    © 2026 Anh Sơn II
+</footer>
 
 </body>
 </html>
