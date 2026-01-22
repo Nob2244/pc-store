@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>CLB Ngoại Khóa - THPT Anh Sơn II</title>
+<title>Hoạt động CLB - THPT Anh Sơn II</title>
 
 <!-- CSS TRONG (Internal CSS) -->
 <style>
@@ -10,99 +10,140 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"Segoe UI",Roboto,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
+
 body{
-    background:#f3f5f7;
-    color:#222;
+    background:#f5f5f5;
+    color:#111;
 }
 
 /* HEADER */
 header{
-    background:linear-gradient(135deg,#1e40af,#2563eb);
-    color:#fff;
-    text-align:center;
-    padding:40px 20px;
+    background:#fff;
+    border-bottom:3px solid #c4161c;
+    padding:20px;
 }
 header h1{
-    font-size:40px;
+    font-size:38px;
+    font-weight:800;
+    color:#c4161c;
 }
 header p{
-    margin-top:10px;
-    opacity:.9;
+    margin-top:6px;
+    font-size:14px;
+    color:#555;
 }
 
-/* MAIN */
+/* MAIN LAYOUT */
 main{
-    max-width:1100px;
-    margin:50px auto;
+    max-width:1200px;
+    margin:25px auto;
     padding:0 20px;
-}
-.grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:26px;
+    grid-template-columns:2.5fr 1fr;
+    gap:30px;
 }
 
-/* CARD */
-.card{
+/* NEWS COLUMN */
+.news{
     background:#fff;
-    border-radius:18px;
-    padding:22px;
-    box-shadow:0 10px 24px rgba(0,0,0,.08);
-    transition:.25s;
-}
-.card:hover{
-    transform:translateY(-6px);
+    padding:20px;
 }
 
-/* ====== LINK TÊN CLB ======
-   Thẻ <a> vừa để:
-   1) Hiển thị tên CLB
-   2) Điều hướng sang file HTML riêng của CLB
-   3) Minh họa PSEUDO-CLASS trong CSS
+/* ARTICLE */
+.article{
+    border-bottom:1px solid #ddd;
+    padding-bottom:16px;
+    margin-bottom:18px;
+}
+
+/* ===== LINK TÊN CLB =====
+   Thẻ <a> được dùng để:
+   - Hiển thị tiêu đề CLB
+   - Điều hướng sang trang HTML riêng của CLB
+   - Minh họa pseudo-class trong CSS
 */
-.clb-name{
-    display:inline-block;
-    font-size:18px;
-    font-weight:600;
+.clb-title{
+    font-size:22px;
+    font-weight:700;
+    color:#111;
     text-decoration:none;
-    color:#1e3a8a;
-    margin-bottom:8px;
-    transition:.2s;
+    display:block;
+    margin-bottom:6px;
 }
 
 /* PSEUDO-CLASS */
-.clb-name:hover{
-    color:#dc2626;
+.clb-title:hover{
+    color:#c4161c;
     text-decoration:underline;
 }
-.clb-name:visited{
-    color:#6b21a8;
+.clb-title:visited{
+    color:#555;
 }
-.clb-name:active{
-    transform:scale(0.95);
+.clb-title:active{
+    color:#000;
 }
-.clb-name:focus{
-    outline:2px dashed #2563eb;
+.clb-title:focus{
+    outline:2px dashed #c4161c;
 }
 
-/* TEXT */
+/* META */
+.meta{
+    font-size:12px;
+    color:#777;
+    margin-bottom:8px;
+}
+
+/* DESCRIPTION */
 .desc{
+    font-size:15px;
+    line-height:1.6;
+    color:#333;
+}
+
+/* SIDEBAR */
+aside{
+    background:#fff;
+    padding:20px;
+}
+aside h3{
+    font-size:18px;
+    border-left:4px solid #c4161c;
+    padding-left:8px;
+    margin-bottom:12px;
+}
+aside ul{
+    list-style:none;
+}
+aside li{
+    margin-bottom:10px;
+}
+aside a{
+    text-decoration:none;
     font-size:14px;
-    color:#555;
-    line-height:1.5;
+    color:#111;
+}
+aside a:hover{
+    color:#c4161c;
+    text-decoration:underline;
 }
 
 /* FOOTER */
 footer{
-    margin-top:70px;
+    margin-top:40px;
     background:#fff;
-    border-top:1px solid #e5e7eb;
-    padding:25px 20px;
-    text-align:center;
+    border-top:1px solid #ddd;
+    padding:20px;
     font-size:13px;
     color:#666;
+    text-align:center;
+}
+
+@media(max-width:900px){
+    main{
+        grid-template-columns:1fr;
+    }
 }
 </style>
 </head>
@@ -111,60 +152,64 @@ footer{
 
 <header>
     <h1>Trường THPT Anh Sơn II</h1>
-    <p>Các Câu Lạc Bộ Ngoại Khóa – Học tập & Phát triển kỹ năng</p>
+    <p>Hoạt động Câu lạc bộ ngoại khóa • Đời sống học đường</p>
 </header>
 
 <main>
-<div class="grid">
 
-<div class="card">
-    <!-- CSS NỘI DÒNG: icon + màu nhấn -->
-    <div style="font-size:36px;margin-bottom:6px;">💻</div>
-    <a class="clb-name" href="clb-tinhoc.html">
-        CLB Tin học – Công nghệ
+<!-- CỘT CHÍNH -->
+<section class="news">
+
+<div class="article">
+    <a href="clb-tinhoc.html" class="clb-title">
+        CLB Tin học – Công nghệ thu hút đông đảo học sinh
     </a>
+    <div class="meta">💻 Công nghệ • Hoạt động nổi bật</div>
     <p class="desc">
-        Lập trình, thiết kế web, AI cơ bản và ứng dụng công nghệ vào học tập.
+        CLB Tin học giúp học sinh tiếp cận lập trình, thiết kế web và trí tuệ nhân tạo,
+        góp phần nâng cao kỹ năng số trong thời đại chuyển đổi số.
     </p>
 </div>
 
-<div class="card">
-    <div style="font-size:36px;margin-bottom:6px;">🎸</div>
-    <a class="clb-name" href="clb-amnhac.html">
-        CLB Âm nhạc
+<div class="article">
+    <a href="clb-amnhac.html" class="clb-title">
+        CLB Âm nhạc – Nơi chắp cánh đam mê nghệ thuật
     </a>
+    <div class="meta">🎸 Văn hóa • Nghệ thuật</div>
     <p class="desc">
-        Thanh nhạc, guitar, piano và biểu diễn trong các sự kiện của trường.
+        CLB Âm nhạc là sân chơi cho học sinh yêu thích ca hát, nhạc cụ
+        và biểu diễn trong các chương trình của nhà trường.
     </p>
 </div>
 
-<div class="card">
-    <div style="font-size:36px;margin-bottom:6px;">⚽</div>
-    <a class="clb-name" href="clb-thethao.html">
-        CLB Thể thao
+<div class="article">
+    <a href="clb-thethao.html" class="clb-title">
+        CLB Thể thao đẩy mạnh phong trào rèn luyện sức khỏe
     </a>
+    <div class="meta">⚽ Thể thao • Học đường</div>
     <p class="desc">
-        Bóng đá, cầu lông, bóng chuyền – rèn luyện thể chất và tinh thần đồng đội.
+        Các bộ môn như bóng đá, cầu lông, bóng chuyền được tổ chức thường xuyên,
+        giúp học sinh nâng cao thể chất và tinh thần đồng đội.
     </p>
 </div>
 
-<div class="card">
-    <div style="font-size:36px;margin-bottom:6px;">🌱</div>
-    <a class="clb-name" href="clb-tinhnguyen.html">
-        CLB Tình nguyện – Môi trường
-    </a>
-    <p class="desc">
-        Hoạt động thiện nguyện, bảo vệ môi trường và phục vụ cộng đồng.
-    </p>
-</div>
+</section>
 
-</div>
+<!-- SIDEBAR -->
+<aside>
+    <h3>CLB tiêu biểu</h3>
+    <ul>
+        <li><a href="clb-tinhnguyen.html">🌱 CLB Tình nguyện – Môi trường</a></li>
+        <li><a href="clb-my thuat.html">🎨 CLB Mỹ thuật & Thiết kế</a></li>
+        <li><a href="clb-hoc-thuat.html">🧠 CLB Học thuật</a></li>
+    </ul>
+</aside>
+
 </main>
 
 <footer>
     <strong>Trường THPT Anh Sơn II</strong><br>
-    Giáo dục – Kỷ luật – Sáng tạo – Nhân văn<br>
-    © 2026 Anh Sơn II
+    Giao diện phong cách báo điện tử • © 2026
 </footer>
 
 </body>
